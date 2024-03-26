@@ -26,7 +26,7 @@ type cache struct {
 	items             map[string]Item
 	mu                sync.RWMutex
 
-	// 驱逐过期的key and value， 定义了回调函数, 如果我不定义这种回调函数执行，代码会存在什么问题？
+	// 驱逐过期的key and value， 定义了回调函数
 	onEvicted func(string, interface{})
 
 	//控制时间过期,
