@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-// 2.  adding expiration time for memory cache implementation
+// 3.  adding expiration time for memory cache implementation add callback function
 
 const (
 	DefaultExpiration time.Duration = 0
@@ -32,6 +32,14 @@ type cache struct {
 	items             map[string]Item
 	mu                sync.RWMutex
 	defaultExpiration time.Duration
+	// 为使用这个框架的人提供一个接口使用
+	onEvicted func(string, interface{})
+}
+
+func (c *cache) OnEvicted(f func(string, interface{})) {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	c.onEvicted = f
 }
 
 type Caches interface {
@@ -127,15 +135,17 @@ func (c *cache) Delete(key string) error {
 }
 
 func (c *cache) delete(key string) (interface{}, bool) {
-
-	item, ok := c.items[key]
-	if !ok {
-		return nil, false
+	if c.onEvicted !=nil {
+		item, ok := c.items[key]
+		if ok {
+			return item.Obj, true
+		}
+		delete(c.items, key)
 	}
 
 	delete(c.items, key)
 
-	return item.Obj, true
+	return nil, false
 }
 
 func (c *cache) Set(key string, value interface{}, d time.Duration) error {

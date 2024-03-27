@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="788bd4f1-678e-46b4-a12d-384489cb0e55" name="变更" comment="" />
+    <list default="true" id="788bd4f1-678e-46b4-a12d-384489cb0e55" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/callback_delay_cache/cache.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/callback_delay_cache/cache_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/cache.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cache.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delay_cache/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/delay_cache/cache.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delay_cache/cache_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/delay_cache/cache_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nodelay_cache/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/nodelay_cache/cache.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nodelay_cache/cache_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/nodelay_cache/cache_test.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +27,9 @@
     </option>
   </component>
   <component name="GOROOT" url="file:///usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="true" />
   </component>
@@ -25,12 +37,16 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2BmMOlrRfNvnf4i9VDTBm1sFF2z" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -38,19 +54,25 @@
     &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;configurable..is.expanded&quot;: &quot;false&quot;,
+    &quot;configurable.GoLibrariesConfigurable.is.expanded&quot;: &quot;true&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/Johnny/go/src/cache&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/main" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Go 测试.cache/delay_cache 中的 TestCache">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="cache" />
       <working_directory value="$PROJECT_DIR$" />
@@ -60,13 +82,12 @@
       <filePath value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build cachetest" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="cache" />
+    <configuration name="go build cache" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
+      <kind value="DIRECTORY" />
       <package value="cachetest" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/demo.go" />
+      <filePath value="$PROJECT_DIR$/demo.go|$PROJECT_DIR$/cache_test.go" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
@@ -79,9 +100,59 @@
       <framework value="gotest" />
       <method v="2" />
     </configuration>
+    <configuration name="cache/delay_cache 中的 TestCache" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="cache" />
+      <working_directory value="$PROJECT_DIR$/delay_cache" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="cache/delay_cache" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestCache\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="cache/delay_cache 中的 TestCacheOperations" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="cache" />
+      <working_directory value="$PROJECT_DIR$/delay_cache" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="cache/delay_cache" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestCacheOperations\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="cache/nodelay_cache 中的 TestCache" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="cache" />
+      <working_directory value="$PROJECT_DIR$/nodelay_cache" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="cache/nodelay_cache" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestCache\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="cache_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="cache" />
+      <working_directory value="$PROJECT_DIR$/delay_cache" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/delay_cache/cache_test.go" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go 构建.go build cachetest" />
+        <item itemvalue="Go 测试.cache/delay_cache 中的 TestCache" />
+        <item itemvalue="Go 测试.cache_test.go" />
+        <item itemvalue="Go 测试.cache/delay_cache 中的 TestCacheOperations" />
+        <item itemvalue="Go 测试.cache/nodelay_cache 中的 TestCache" />
+        <item itemvalue="Go 构建.go build cache" />
       </list>
     </recent_temporary>
   </component>
@@ -89,7 +160,23 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <MESSAGE value="v1" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1" />
+  </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/cache.go</url>
+          <line>237</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
