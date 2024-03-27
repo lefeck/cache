@@ -1,8 +1,11 @@
 package nodelay_cache
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
-func TestCacheOperations(t *testing.T) {
+func TestCache(t *testing.T) {
 	m := make(map[string]Item)
 	cache := NewCaches(m)
 
@@ -27,6 +30,13 @@ func TestCacheOperations(t *testing.T) {
 	value, ok = cache.Get("key1")
 	if !ok || value.(int) != 456 {
 		t.Errorf("Replace failed: expected 456, got %v", value)
+	}
+
+	// testing count
+	count := cache.Count()
+	fmt.Printf("the item of count is %d\n", count)
+	if count == 0 {
+		t.Errorf("the item of count is not zero ")
 	}
 
 	// 测试 Copy
@@ -55,48 +65,3 @@ func TestCacheOperations(t *testing.T) {
 		t.Errorf("Flush failed: key1 still exists in cache")
 	}
 }
-
-//func TestCache(t *testing.T) {
-//	// 创建一个新的 Cache 实例
-//	cache := NewCaches(make(map[string]Item))
-//
-//	// 设置键值对
-//	err := cache.Set("key1", "value1")
-//	if err != nil {
-//		t.Errorf("Set failed: %v", err)
-//	}
-//
-//	// 获取键值对并检查是否正确
-//	val, ok := cache.Get("key1")
-//	if !ok {
-//		t.Error("Get failed: key not found")
-//	} else if val != "value1" {
-//		t.Errorf("Get failed: expected 'value1', got '%v'", val)
-//	}
-//
-//	// 替换键值对
-//	//err = cache.Replace("key1", "value2")
-//	//if err != nil {
-//	//	t.Errorf("Replace failed: %v", err)
-//	//}
-//
-//	// 获取替换后的值并检查是否正确
-//	val, ok = cache.Get("key1")
-//	if !ok {
-//		t.Error("Get failed: key not found after Replace")
-//	} else if val != "value1" {
-//		t.Errorf("Get failed: expected 'value2', got '%v'", val)
-//	}
-//
-//	// 删除键值对
-//	deleted := cache.Delete("key1")
-//	if !deleted {
-//		t.Error("Delete failed: key not found")
-//	}
-//
-//	// 确保键值对已删除
-//	_, ok = cache.Get("key1")
-//	if ok {
-//		t.Error("Get after Delete failed: key still exists")
-//	}
-//}

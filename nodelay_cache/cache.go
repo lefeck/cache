@@ -23,12 +23,19 @@ type Caches interface {
 	Flush()
 	Replace(key string, value interface{}) error
 	Copy() map[string]Item
+	Count() int
 }
 
 func NewCaches(m map[string]Item) Caches {
 	return &cache{
 		items: m,
 	}
+}
+
+func (c *cache) Count() int {
+	c.mu.RLock()
+	defer c.mu.RUnlock()
+	return len(c.items)
 }
 
 func (c *cache) Get(key string) (interface{}, bool) {
