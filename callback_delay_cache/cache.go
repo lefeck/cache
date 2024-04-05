@@ -91,36 +91,8 @@ func (c *cache) Count() int {
 func (c *cache) Get(key string) (interface{}, bool) {
 	c.mu.RLock()
 	defer c.mu.RUnlock()
-
-<<<<<<< HEAD
-	//item, ok := c.items[key]
-	//if !ok {
-	//	return nil, false
-	//}
-	//
-	//// insure item object without expiration
-	//if c.defaultExpiration > 0 {
-	//	if time.Now().UnixNano() > item.Expiration {
-	//		return nil, false
-	//	}
-	//}
-
+	
 	return c.get(key)
-=======
-	item, ok := c.items[key]
-	if !ok {
-		return nil, false
-	}
-
-	// insure item object without expiration
-	if c.defaultExpiration > 0 {
-		if time.Now().UnixNano() > item.Expiration {
-			return nil, false
-		}
-	}
-
-	return item.Obj, true
->>>>>>> origin/main
 }
 
 func (c *cache) get(key string) (interface{}, bool) {
@@ -140,21 +112,11 @@ func (c *cache) get(key string) (interface{}, bool) {
 func (c *cache) Delete(key string) error {
 	c.mu.Lock()
 	defer c.mu.Unlock()
-<<<<<<< HEAD
-
 	v, ok := c.delete(key)
 	if ok {
 		c.onEvicted(key,v)
 	}
-=======
-	_, ok := c.items[key]
-	if !ok {
-		return fmt.Errorf("%s is not exist", key)
-	}
 
-	delete(c.items, key)
-
->>>>>>> origin/main
 	return nil
 }
 
