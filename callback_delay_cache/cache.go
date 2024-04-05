@@ -1,4 +1,4 @@
-package nodelay_cache
+package callback_delay_cache
 
 import (
 	"fmt"

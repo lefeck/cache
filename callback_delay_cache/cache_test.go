@@ -1,4 +1,4 @@
-package nodelay_cache_test
+package callback_delay_cache
 
 import (
 	"testing"
@@ -8,7 +8,7 @@ import (
 )
 
 func TestCacheSetAndGet(t *testing.T) {
-	cache := nodelay_cache.NewCaches(map[string]nodelay_cache.Item{}, nodelay_cache.DefaultExpiration)
+	cache := NewCaches(map[string]Item{}, DefaultExpiration)
 
 	err := cache.Set("key1", "value1", 1*time.Hour)
 	assert.Nil(t, err)
@@ -24,7 +24,7 @@ func TestCacheSetAndGet(t *testing.T) {
 }
 
 func TestCacheDelete(t *testing.T) {
-	cache := nodelay_cache.NewCaches(map[string]nodelay_cache.Item{}, nodelay_cache.DefaultExpiration)
+	cache :=  NewCaches(map[string] Item{},  DefaultExpiration)
 
 	err := cache.Set("key1", "value1", 1*time.Hour)
 	assert.Nil(t, err)
@@ -38,7 +38,7 @@ func TestCacheDelete(t *testing.T) {
 }
 
 func TestCacheReplace(t *testing.T) {
-	cache := nodelay_cache.NewCaches(map[string]nodelay_cache.Item{}, nodelay_cache.DefaultExpiration)
+	cache :=  NewCaches(map[string] Item{},  DefaultExpiration)
 
 	err := cache.Set("key1", "value1", 1*time.Hour)
 	assert.Nil(t, err)
@@ -52,10 +52,10 @@ func TestCacheReplace(t *testing.T) {
 }
 
 func TestCacheFlush(t *testing.T) {
-	cache := nodelay_cache.NewCaches(map[string]nodelay_cache.Item{}, nodelay_cache.DefaultExpiration)
+	cache :=  NewCaches(map[string] Item{},  DefaultExpiration)
 
-	_ = cache.Set("key1", "value1", nodelay_cache.DefaultExpiration)
-	_ = cache.Set("key2", "value2", nodelay_cache.DefaultExpiration)
+	_ = cache.Set("key1", "value1",  DefaultExpiration)
+	_ = cache.Set("key2", "value2",  DefaultExpiration)
 
 	cache.Flush()
 
@@ -69,10 +69,10 @@ func TestCacheFlush(t *testing.T) {
 }
 
 func TestCacheCount(t *testing.T) {
-	cache := nodelay_cache.NewCaches(map[string]nodelay_cache.Item{}, nodelay_cache.DefaultExpiration)
+	cache :=  NewCaches(map[string] Item{},  DefaultExpiration)
 
-	_ = cache.Set("key1", "value1", nodelay_cache.DefaultExpiration)
-	_ = cache.Set("key2", "value2", nodelay_cache.DefaultExpiration)
+	_ = cache.Set("key1", "value1",  DefaultExpiration)
+	_ = cache.Set("key2", "value2",  DefaultExpiration)
 
 	count := cache.Count()
 	assert.Equal(t, 2, count)
@@ -88,12 +88,12 @@ func onEvictedTest(key string, value interface{}) {
 
 
 func TestOnEvicted(t *testing.T) {
-	cache := nodelay_cache.NewCaches(map[string]nodelay_cache.Item{}, nodelay_cache.DefaultExpiration)
+	cache :=  NewCaches(map[string] Item{},  DefaultExpiration)
 
 	cache.OnEvicted(onEvictedTest)
 
-	_ = cache.Set("key1", "value1", nodelay_cache.DefaultExpiration)
-	_ = cache.Set("key2", "value2", nodelay_cache.DefaultExpiration)
+	_ = cache.Set("key1", "value1",  DefaultExpiration)
+	_ = cache.Set("key2", "value2",  DefaultExpiration)
 
 	_ = cache.Delete("key1")
 

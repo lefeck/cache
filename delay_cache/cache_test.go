@@ -1,13 +1,12 @@
-package nodelay_cache_test
+package delay_cache
 
 import (
-	nodelay_cache "cache/delay_cache"
 	"testing"
 	"time"
 )
 
 func TestCache(t *testing.T) {
-	cache := nodelay_cache.NewCaches(make(map[string]nodelay_cache.Item), 5*time.Second)
+	cache := NewCaches(make(map[string]Item), 5*time.Second)
 
 	// Test Set and Get
 	err := cache.Set("key1", "value1", 2*time.Second)
@@ -28,14 +27,14 @@ func TestCache(t *testing.T) {
 	}
 
 	// Test Delete
-	cache.Set("key2", "value2", nodelay_cache.DefaultExpiration)
+	cache.Set("key2", "value2", DefaultExpiration)
 	err = cache.Delete("key2")
 	if err != nil {
 		t.Error("Delete error:", err)
 	}
 
 	// Test Flush
-	cache.Set("key3", "value3", nodelay_cache.DefaultExpiration)
+	cache.Set("key3", "value3", DefaultExpiration)
 	cache.Flush()
 	value, ok = cache.Get("key3")
 	if ok || value != nil {
@@ -43,8 +42,8 @@ func TestCache(t *testing.T) {
 	}
 
 	// Test Replace
-	cache.Set("key4", "value4", nodelay_cache.DefaultExpiration)
-	err = cache.Replace("key4", "newValue4", nodelay_cache.DefaultExpiration)
+	cache.Set("key4", "value4", DefaultExpiration)
+	err = cache.Replace("key4", "newValue4", DefaultExpiration)
 	if err != nil {
 		t.Error("Replace error:", err)
 	}
